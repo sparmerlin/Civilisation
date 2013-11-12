@@ -559,7 +559,7 @@ public final class StringParser {
 			temp.append(codeCharacters(itemStack.getItemMeta().getDisplayName(),true));
 		}
 
-		return temp.toString().replace('§', '&');
+		return temp.toString().replace(ChatColor.COLOR_CHAR, '&');
 	}
 
 	public static String getWoolEnumFromChatColorEnum(final String color) {
