@@ -1,0 +1,36 @@
+done:
+* ALL perms and all perm checks
+
+* house creation
+* house commands
+* house events
+* house saving
+* house loading
+
+* city creation [constructor]
+* city loading
+* city saving
+* city commands
+* city events
+
+* nation loading
+* nation saving
+* nation events
+* nation commands
+* nation creation [constructor]
+
+-------------------------
+
+todo:
+* city creation [command/event]
+* ECONOMY
+* nation creation
+
+--------------------------------------
+
+maybe:
+
+* /city|nation here => shows info of the town at your location
+* /city|nation list => shows town list
+* /city|nation online => shows online people of your town
+* /city|nation spawn => teleport to the town spawn

@@ -1,0 +1,45 @@
+name: Civilisation
+author: slipcor
+main: net.slipcor.civ.Civilisation
+version: 0.0.0.1
+softdepend: [MultiVerse,MultiWorld,WormholeXTreme,Vault]
+website: http://dev.bukkit.org/bukkit-plugins/civilisation
+dev-url: http://dev.bukkit.org/bukkit-plugins/civilisation
+commands:
+    civilisation:
+        description: Base command
+        aliases: ['c','civ']
+        usage: |
+            <command> help
+    creload:
+        permission: civ.admin
+        permission-message: '§cYou don''t have <permission>'
+        description: Reload command
+        aliases: ['cr','reload']
+        usage: |
+            <command>
+    house:
+        permission: civ.house.admin
+        permission-message: '§cYou don''t have ''§f<permission>§c''!'
+        description: Administrate your house
+        aliases: ['h', 'civh']
+        usage: |
+            <command> claim
+            <command> unclaim
+            <command> perm
+            <command> invite
+permissions:
+    civ.*:
+        description: Gives access to all the things
+        children:
+            civ.admin: true
+            civ.user: true
+    civ.admin:
+        description: Allows you to administrate
+        default: op
+    civ.house.admin:
+        description: Allows you to administrate your house
+        default: true
+    civ.user:
+        description: Allows you to use
+        default: true
