@@ -39,4 +39,5 @@ maybe:
 
 Version History
 
+v0.0.0.2 - correct file alignment
 v0.0.0.1 - update the POM and establish github link
