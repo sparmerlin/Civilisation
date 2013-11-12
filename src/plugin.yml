@@ -1,7 +1,7 @@
 name: Civilisation
 author: slipcor
 main: net.slipcor.civ.Civilisation
-version: 0.0.0.1
+version: 0.0.0.jenkins-build-number
 softdepend: [MultiVerse,MultiWorld,WormholeXTreme,Vault]
 website: http://dev.bukkit.org/bukkit-plugins/civilisation
 dev-url: http://dev.bukkit.org/bukkit-plugins/civilisation

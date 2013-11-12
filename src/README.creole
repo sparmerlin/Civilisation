@@ -34,3 +34,9 @@ maybe:
 * /city|nation list => shows town list
 * /city|nation online => shows online people of your town
 * /city|nation spawn => teleport to the town spawn
+
+--------------------------------------
+
+Version History
+
+v0.0.0.1 - update the POM and establish github link
