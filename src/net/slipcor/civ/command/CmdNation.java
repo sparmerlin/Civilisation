@@ -42,11 +42,6 @@ public class CmdNation extends AbstractCommand {
 
     @Override
     public boolean runCommand(final CommandSender sender, final String[] args) {
-        if (args.length == 0) {
-            //TODO print nation information
-            
-            return true;
-        }
         
         if (!(sender instanceof Player)) {
             sender.sendMessage(Language.parse(Language.COMMAND_ONLYPLAYER));
@@ -67,6 +62,12 @@ public class CmdNation extends AbstractCommand {
         	sender.sendMessage(Language.parse(Language.NATION_YOU_NO_NATION));
         	return true;
         }
+        
+        if (args.length == 0) {
+            sender.sendMessage(nation.debug());
+            return true;
+        }
+        
 
         if (args[0].equals("leave")) {
         	final NationLeaveEvent event = new NationLeaveEvent(nation, sender);

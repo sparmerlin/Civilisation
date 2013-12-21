@@ -27,4 +27,5 @@ public interface INation {
 	void setCapital(ICity newCapital);
 	void setTax(double amount);
 	double getTax();
+	String[] debug();
 }

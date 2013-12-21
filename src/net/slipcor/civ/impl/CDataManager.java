@@ -62,9 +62,12 @@ public class CDataManager implements IDataManager {
                 for (String chunk : cfg.getStringList("claimed")) {
                     house.getClaimed().add(new CChunk(chunk));
                 }
+                plugin.getLogger().info("House loaded: " + house.getName());
             }
+            plugin.getLogger().info("Houses loaded: " + plugin.getHouses().size());
         } else {
             houseRoot.mkdir();
+            plugin.getLogger().info("House root created!");
         }
         
         cityRoot = new File(root, "Cities");
@@ -75,7 +78,7 @@ public class CDataManager implements IDataManager {
                 final String name = f.getName().replace(".yml", "");
                 
                 final ICity city = new CCity(name, plugin.getHouse(cfg.getString("owner"), true));
-                
+                plugin.addCity(city);
                 new CCityBuffer(city, cfg);
                 
                 if (cfg.get("perms") != null) {
@@ -94,7 +97,9 @@ public class CDataManager implements IDataManager {
 
                 city.addMoney(cfg.getInt("money")/100);
                 city.setTax(cfg.getInt("tax")/100);
+                plugin.getLogger().info("City loaded: " + city.getName());
             }
+            plugin.getLogger().info("Cities loaded: " + plugin.getCities().size());
         	CCityBuffer.commitAll(plugin);
         } else {
             cityRoot.mkdir();
@@ -110,7 +115,7 @@ public class CDataManager implements IDataManager {
                 final String name = f.getName().replace(".yml", "");
                 
                 final INation nation = new CNation(name, plugin.getCity(cfg.getString("capital")));
-                
+                plugin.addNation(nation);
                 new CNationBuffer(nation, cfg);
                 
                 if (cfg.get("perms") != null) {
@@ -125,8 +130,10 @@ public class CDataManager implements IDataManager {
 
                 nation.addMoney(cfg.getInt("money")/100);
                 nation.setTax(cfg.getInt("tax")/100);
+                plugin.getLogger().info("Nation loaded: " + nation.getName());
             }
         	CNationBuffer.commitAll(plugin);
+            plugin.getLogger().info("Nations loaded: " + plugin.getNations().size());
         } else {
             nationRoot.mkdir();
         }

@@ -25,10 +25,14 @@ public enum Language {
     
     COMMAND_SUBCMDS("arg_subcmds", "Valid subcommands: %1%"),
 
+    CITY_ALREADY_EXISTS("city_already_exists", "City already exists: %1%"),
+    
     CITY_CLAIM_ALREADY("city_claim_already", "This chunk already belongs to your city!"),
     CITY_CLAIM_ALREADY_OTHER("city_claim_already_other", "This chunk already belongs to %1%!"),
     CITY_CLAIM_DONE("city_claim_done","Outpost claimed successfully!"),
     CITY_CLAIM_MAX("city_claim_max", "Your City already claimed the maximum outposts!"),
+
+    CITY_CREATED("city_created", "City '%1%' created!"),
     
     CITY_NO_OWNER("city_no_owner", "You may not use this command as you don't own your town!"),
     
@@ -101,6 +105,7 @@ public enum Language {
     NATION_YOU_LEFT("nation_you_left", "You left %1%!"),
     NATION_YOU_NO_NATION("nation_you_no_nation", "You are not part of a nation!"),
 
+    NATION_ALREADY_EXISTS("nation_already_exists", "Nation already exists: %1%"),
     NATION_UNKNOWN("nation_unknown", "Nation does not exist: %1%"),
     
 
@@ -120,10 +125,13 @@ public enum Language {
     NATION_CAPITAL_DONE("nation_capital_done", "The new capital is %1%!"),
     NATION_CAPITAL_NOTINNATION("nation_capital_notinnation", "%1% is not in the Nation!"),
 
+    NATION_CREATED("nation_created", "Nation created: %1%"),
+    
     NATION_NO_CAPITAL("nation_no_capital", "You may not use this command as you are not the capital!"),
     
     NATION_TAX_DONE("nation_tax_done", "The new tax is %1%!"),
     
+    NOPERM("noperm", "&cYou don't have the permission &r%1%&c!"),
     
     PLUGINRELOADED("pluginreloaded", "Plugin reloaded successfully!"),
     

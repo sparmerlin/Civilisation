@@ -36,5 +36,6 @@ public interface ICity {
 	void setOwner(IHouse newOwneWr);
 	void setTax(double amount);
 	double getTax();
+	String[] debug();
 	
 }

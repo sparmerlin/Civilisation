@@ -12,12 +12,14 @@ done:
 * city saving
 * city commands
 * city events
+* city creation [admin command]
 
 * nation loading
 * nation saving
 * nation events
 * nation commands
 * nation creation [constructor]
+* nation creation [admin command]
 
 -------------------------
 
@@ -39,6 +41,8 @@ maybe:
 
 Version History
 
+* v0.0.1.4 - fix several errors, add house/city/nation debug
+* v0.0.0.4 - implement commands to force create cities and nations
 * v0.0.0.3 - hackfix the encoding issue
 * v0.0.0.2 - correct file alignment
 * v0.0.0.1 - update the POM and establish github link

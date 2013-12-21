@@ -7,10 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.bukkit.ChatColor;
+
 import net.slipcor.civ.Civilisation;
 import net.slipcor.civ.api.ICity;
 import net.slipcor.civ.api.INation;
 import net.slipcor.civ.api.IPermMap;
+import net.slipcor.civ.core.StringParser;
 
 /**
  *
@@ -121,6 +124,28 @@ public class CNation implements INation {
 	@Override
 	public double getTax() {
 		return tax;
+	}
+
+	@Override
+	public String[] debug() {
+		String[] output = new String[8];
+		output[0] = "Nation " + name;
+		output[1] = "--------------";
+		output[2] = "liking: ";
+		for (INation city : likeStatus.keySet()) {
+			output[2] += (likeStatus.get(city)?ChatColor.GREEN:ChatColor.RED);
+			output[2] += ChatColor.RESET+", ";
+		}
+		output[3] = "perms: ";
+		for (String key : permissions.keySet()) {
+			output[3] += permissions.get(key).printColorized();
+			output[3] += ChatColor.RESET+", ";
+		}
+		output[4] = "cities: " + StringParser.joinArray(cities.toArray(), ", ");
+		output[5] = "capital: " + capital.getName();
+		output[6] = "money: " + money;
+		output[7] = "tax: " + tax;
+		return output;
 	}
 
 }

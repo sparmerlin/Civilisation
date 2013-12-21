@@ -26,6 +26,8 @@ public class CmdHouse extends AbstractCommand {
         this.addSubCommand("dislike", new CmdHouseDislike(plugin));
         // /house like {[house]}
         this.addSubCommand("like", new CmdHouseLike(plugin));
+        // /house city [name]
+        this.addSubCommand("city", new CmdHouseCity(plugin));
         
         // /house claim | claim the chunk you stand on
         this.addArgument("claim");
@@ -38,11 +40,6 @@ public class CmdHouse extends AbstractCommand {
 
     @Override
     public boolean runCommand(final CommandSender sender, final String[] args) {
-        if (args.length == 0) {
-            //TODO print house information
-            
-            return true;
-        }
         
         if (!(sender instanceof Player)) {
             sender.sendMessage(Language.parse(Language.COMMAND_ONLYPLAYER));
@@ -52,6 +49,11 @@ public class CmdHouse extends AbstractCommand {
         final Player player = (Player) sender;
         final IChunk chunk = new CChunk(player.getLocation().getChunk());
         final IHouse house = plugin.getHouse(player.getName(), true);
+
+        if (args.length == 0) {
+            sender.sendMessage(house.debug());
+            return true;
+        }
         
         if (args[0].equals("claim")) {
             for (IHouse serverHouse : plugin.getHouses()) {

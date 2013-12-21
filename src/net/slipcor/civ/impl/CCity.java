@@ -14,7 +14,10 @@ import net.slipcor.civ.api.INation;
 import net.slipcor.civ.api.IPermMap;
 import net.slipcor.civ.api.Permission;
 import net.slipcor.civ.core.Config;
+import net.slipcor.civ.core.StringParser;
+
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
@@ -207,5 +210,28 @@ public class CCity implements ICity {
 	@Override
 	public double getTax() {
 		return tax;
+	}
+
+	@Override
+	public String[] debug() {
+		String[] output = new String[9];
+		output[0] = "City " + name;
+		output[1] = "--------------";
+		output[2] = "liking: ";
+		for (ICity city : likeStatus.keySet()) {
+			output[2] += (likeStatus.get(city)?ChatColor.GREEN:ChatColor.RED);
+			output[2] += ChatColor.RESET+", ";
+		}
+		output[3] = "perms: ";
+		for (String key : permissions.keySet()) {
+			output[3] += permissions.get(key).printColorized();
+			output[3] += ChatColor.RESET+", ";
+		}
+		output[4] = "houses: " + StringParser.joinArray(houses.toArray(), ", ");
+		output[5] = "outposts: " + outposts.size();
+		output[6] = "owner: " + owner.getName();
+		output[7] = "money: " + money;
+		output[8] = "tax: " + tax;
+		return output;
 	}
 }

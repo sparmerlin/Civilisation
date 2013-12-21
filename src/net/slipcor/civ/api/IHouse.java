@@ -32,4 +32,5 @@ public interface IHouse {
 
     boolean prevents(final CLocation location, final Player player,
         final Permission perm);
+	String[] debug();
 }

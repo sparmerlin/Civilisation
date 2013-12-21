@@ -37,6 +37,8 @@ public class CmdCity extends AbstractCommand {
         this.addSubCommand("money", new CmdCityMoney(plugin));
         // /city tax [amount]
         this.addSubCommand("tax", new CmdCityTax(plugin));
+        // /city nation [name]
+        this.addSubCommand("nation", new CmdCityNation(plugin));
         
         // /city claim | claim the chunk you stand on
         this.addArgument("claim");
@@ -51,26 +53,26 @@ public class CmdCity extends AbstractCommand {
 
     @Override
     public boolean runCommand(final CommandSender sender, final String[] args) {
-        if (args.length == 0) {
-            //TODO print city information
-            
-            return true;
-        }
         
         if (!(sender instanceof Player)) {
             sender.sendMessage(Language.parse(Language.COMMAND_ONLYPLAYER));
             return true;
         }
-        
         final Player player = (Player) sender;
-        final IChunk chunk = new CChunk(player.getLocation().getChunk());
-        final IHouse house = plugin.getHouse(player.getName(), true);
         final ICity city = plugin.getCity(player);
         
         if (city == null) {
         	sender.sendMessage(Language.parse(Language.CITY_YOU_NO_CITY));
         	return true;
         }
+        
+        if (args.length == 0) {
+            sender.sendMessage(city.debug());
+            return true;
+        }
+        
+        final IChunk chunk = new CChunk(player.getLocation().getChunk());
+        final IHouse house = plugin.getHouse(player.getName(), true);
 
         if (args[0].equals("leave")) {
         	final CityLeaveEvent event = new CityLeaveEvent(city, sender);

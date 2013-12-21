@@ -24,10 +24,26 @@ commands:
         description: Administrate your house
         aliases: ['h', 'civh']
         usage: |
-            <command> claim
-            <command> unclaim
-            <command> perm
-            <command> invite
+            /<command> claim
+            /<command> unclaim
+            /<command> perm
+            /<command> invite
+    city:
+        permission: civ.city.admin
+        permission-message: '§cYou don''t have ''§f<permission>§c''!'
+        description: Administrate your city
+        aliases: ['cc', 'civc']
+        usage: |
+            /<command> claim
+            /<command> unclaim
+            /<command> perm
+    nation:
+        permission: civ.nation.admin
+        permission-message: '§cYou don''t have ''§f<permission>§c''!'
+        description: Administrate your nation
+        aliases: ['n', 'civn']
+        usage: |
+            /<command> perm
 permissions:
     civ.*:
         description: Gives access to all the things
@@ -39,6 +55,12 @@ permissions:
         default: op
     civ.house.admin:
         description: Allows you to administrate your house
+        default: true
+    civ.city.admin:
+        description: Allows you to administrate your city
+        default: true
+    civ.nation.admin:
+        description: Allows you to administrate your nation
         default: true
     civ.user:
         description: Allows you to use

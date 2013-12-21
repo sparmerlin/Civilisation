@@ -20,6 +20,7 @@ public interface ICivilisation extends Plugin {
     Config config();
     void addHouse(IHouse house);
 	void addCity(ICity city);
+	void addNation(INation nation);
     IDataManager getDataManager();
     IHouse getHouse(String name);
     IHouse getHouse(String name, boolean create);

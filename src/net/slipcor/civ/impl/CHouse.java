@@ -12,6 +12,7 @@ import net.slipcor.civ.api.IPermMap;
 import net.slipcor.civ.api.Permission;
 import net.slipcor.civ.core.Config.CFG;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
@@ -171,4 +172,24 @@ public class CHouse implements IHouse {
             System.out.print("9 false");
         return false;
     }
+
+	@Override
+	public String[] debug() {
+		String[] output = new String[6];
+		output[0] = "House of " + name;
+		output[1] = "--------------";
+		output[2] = "liking: ";
+		for (IHouse house : likeStatus.keySet()) {
+			output[2] += (likeStatus.get(house)?ChatColor.GREEN:ChatColor.RED);
+			output[2] += ChatColor.RESET+", ";
+		}
+		output[3] = "perms: ";
+		for (String key : permissions.keySet()) {
+			output[3] += permissions.get(key).printColorized();
+			output[3] += ChatColor.RESET+", ";
+		}
+		output[4] = "claimed: " + claimed.size();
+		output[5] = "bonus: " + bonus;
+		return output;
+	}
 }

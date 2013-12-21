@@ -56,9 +56,11 @@ public abstract class AbstractCommand implements CommandExecutor {
             return subCommands.get(strings[0]).onCommand(sender, cmnd, cmdLabel, StringParser.shiftArrayBy(strings, 1));
         }
         
-        if (strings.length > 0 &&
+        if (strings.length > 0 && (
+        		arguments.size() > 0 || subCommands.size() > 0) &&
                 (!arguments.contains(strings[0]) &&
                 !subCommands.containsKey(strings[0]))) {
+        	new Exception().printStackTrace();
             sender.sendMessage(Language.parse(Language.COMMAND_ARG_UNKNOWN, strings[0]));
             sender.sendMessage(Language.parse(Language.COMMAND_SUBCMDS, StringParser.joinSet(subCommands.keySet(), ", ")));
             sender.sendMessage(Language.parse(Language.COMMAND_ARGS, StringParser.joinArray(arguments.toArray(), ", ")));

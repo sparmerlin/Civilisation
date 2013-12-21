@@ -9,7 +9,9 @@ import net.slipcor.civ.api.ICivilisation;
 import net.slipcor.civ.api.IDataManager;
 import net.slipcor.civ.api.IHouse;
 import net.slipcor.civ.api.INation;
+import net.slipcor.civ.command.CmdCity;
 import net.slipcor.civ.command.CmdHouse;
+import net.slipcor.civ.command.CmdNation;
 import net.slipcor.civ.command.CmdReload;
 import net.slipcor.civ.core.CivListener;
 import net.slipcor.civ.core.Config;
@@ -139,6 +141,8 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
     private void registerCommands() {
         getCommand("creload").setExecutor(new CmdReload(this));
         getCommand("house").setExecutor(new CmdHouse(this));
+        getCommand("city").setExecutor(new CmdCity(this));
+        getCommand("nation").setExecutor(new CmdNation(this));
     }
     
     /**
@@ -162,6 +166,7 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
         if (create) {
             final IHouse house = new CHouse(name);
             addHouse(house);
+            this.getDataManager().save(house);
             return house;
         }
         return null;
@@ -205,6 +210,9 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
     @Override
     public ICity getCity(final Player member) {
         for (ICity city : cities) {
+        	if (city.getOwner().getName().equals(member.getName())) {
+        		return city;
+        	}
             for (IHouse house : city.getHouses()) {
                 if (house.getName().equals(member.getName())) {
                     return city;
@@ -231,5 +239,10 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void addNation(INation nation) {
+		this.nations.add(nation);
 	}
 }
