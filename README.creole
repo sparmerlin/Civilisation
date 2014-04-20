@@ -41,6 +41,7 @@ maybe:
 
 Version History
 
+* v0.0.1.7 - colorize own civilisations blue
 * v0.0.1.6 - make claimed chunks persist through "/reload" command; add /civmap
 * v0.0.1.5 - prepare to use player UUIDs instead of player names
 * v0.0.1.4 - fix several errors, add house/city/nation debug

@@ -26,9 +26,9 @@ public class CmdMap extends AbstractCommand {
     private enum MAPENTRYTYPE {
 
         EMPTY("empty", ChatColor.GRAY, "-"),
-        YOURHOUSE("your house", ChatColor.GRAY, "H"),
-        YOURCITY("your city", ChatColor.GRAY, "C"),
-        YOURNATION("your nation", ChatColor.GRAY, "N"),
+        YOURHOUSE("your house", ChatColor.BLUE, "H"),
+        YOURCITY("your city", ChatColor.BLUE, "C"),
+        YOURNATION("your nation", ChatColor.BLUE, "N"),
         OTHERHOUSE_N("other house (neutral)", ChatColor.GRAY, "H"),
         OTHERHOUSE_L("other house (liked)", ChatColor.GREEN, "H"),
         OTHERHOUSE_D("other house (disliked)", ChatColor.RED, "H"),
