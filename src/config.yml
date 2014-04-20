@@ -2,3 +2,6 @@ permissions:
   house: bdeilp
   city: beilp
   nation: bcdeilmp
+playermove:
+  listen: false
+  offset: 5

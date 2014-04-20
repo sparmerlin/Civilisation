@@ -18,6 +18,7 @@ import net.slipcor.civ.core.CivListener;
 import net.slipcor.civ.core.Config;
 import net.slipcor.civ.core.Config.CFG;
 import net.slipcor.civ.core.Language;
+import net.slipcor.civ.core.MoveListener;
 import net.slipcor.civ.core.Tracker;
 import net.slipcor.civ.impl.CDataManager;
 import net.slipcor.civ.impl.CHouse;
@@ -93,9 +94,9 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
             getConfig().options().copyDefaults(true);
             getConfig().set("ver", CFGVERSION);
             saveConfig();*/
+            this.reloadConfig();
         }
 
-        this.reloadConfig();
         return new Config(new File(this.getDataFolder(), "config.yml"));
     }
     
@@ -115,7 +116,7 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
     @Override
     public void onEnable() {
         plugin = this;
-
+        
         final String fileName = config().getString(CFG.LANGUAGEFILE);
         try {
             Language.init(this, fileName);
@@ -128,6 +129,12 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
         
         final CivListener listener = new CivListener(this);
         getServer().getPluginManager().registerEvents(listener, this);
+        
+        if (config().getBoolean(CFG.PLAYERMOVE_LISTEN)) {
+            getLogger().info("Registering MoveListener...");
+            getServer().getPluginManager().registerEvents(new MoveListener(this), this);
+        }
+        
         registerCommands();
         
         final Tracker trackMe = new Tracker(this);
