@@ -41,6 +41,7 @@ maybe:
 
 Version History
 
+* v0.0.1.5 - prepare tp use player UUIDs instead of player names
 * v0.0.1.4 - fix several errors, add house/city/nation debug
 * v0.0.0.4 - implement commands to force create cities and nations
 * v0.0.0.3 - hackfix the encoding issue

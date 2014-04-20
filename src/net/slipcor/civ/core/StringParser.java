@@ -44,7 +44,7 @@ public final class StringParser {
 			findReplace.put("~", "<<tilde>>");
 			findReplace.put("|", "<<pipe>>");
 			findReplace.put(",", "<<comma>>");
-			findReplace.put("ยง", "&");
+			findReplace.put("ง", "&");
 		} else {
 			findReplace.put("<<colon>>", ":");
 			findReplace.put("<<tilde>>", "~");
