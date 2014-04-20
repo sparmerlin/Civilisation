@@ -57,6 +57,10 @@ public class CDataManager implements IDataManager {
                     }
                 }
                 
+                if (cfg.get("spawn") != null) {
+                    house.setSpawn(new CLocation(cfg.getString("spawn")));
+                }
+                
                 house.setBonus(cfg.getInt("bonus"));
                 
                 for (String chunk : cfg.getStringList("claimed")) {
@@ -93,6 +97,10 @@ public class CDataManager implements IDataManager {
                 
                 for (String house : cfg.getStringList("houses")) {
                 	city.getHouses().add(plugin.getHouse(house, true));
+                }
+                
+                if (cfg.get("spawn") != null) {
+                    city.setSpawn(new CLocation(cfg.getString("spawn")));
                 }
 
                 city.addMoney(cfg.getInt("money")/100);
@@ -167,6 +175,10 @@ public class CDataManager implements IDataManager {
         cfg.set("claimed", claimedlist);
         cfg.set("bonus", house.getBonus());
         
+        if (house.getSpawn() != null) {
+            cfg.set("spawn", house.getSpawn().toString());
+        }
+        
         for (String entry : house.getPerms().keySet()) {
             cfg.set(("perms."+entry), house.getPerms().get(entry).toString());
         }
@@ -225,6 +237,9 @@ public class CDataManager implements IDataManager {
         cfg.set("money", (int)(city.getMoney()*100));
         cfg.set("tax", (int)(city.getTax()*100));
         
+        if (city.getSpawn() != null) {
+            cfg.set("spawn", city.getSpawn().toString());
+        }
         
         try {
             final File destination = new File(cityRoot, city.getName() + ".yml");

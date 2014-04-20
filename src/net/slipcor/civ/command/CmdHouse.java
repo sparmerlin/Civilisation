@@ -28,6 +28,8 @@ public class CmdHouse extends AbstractCommand {
         this.addSubCommand("like", new CmdHouseLike(plugin));
         // /house city [name]
         this.addSubCommand("city", new CmdHouseCity(plugin));
+        // /house spawn [set]
+        this.addSubCommand("spawn", new CmdHouseSpawn(plugin));
         
         // /house claim | claim the chunk you stand on
         this.addArgument("claim");

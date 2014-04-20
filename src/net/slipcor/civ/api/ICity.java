@@ -23,19 +23,21 @@ public interface ICity {
 
     boolean prevents(final CLocation location, final Player player,
         final Permission perm);
-	void dislike(ICity city);
-	void like(ICity city);
-	Map<String, IPermMap> getPerms();
-	void setPerms(String name, IPermMap permMap);
-	int getMaxOutposts();
-	void save();
-	
-	double getMoney();
-	void addMoney(double amount);
-	void removeMoney(double amount);
-	void setOwner(IHouse newOwneWr);
-	void setTax(double amount);
-	double getTax();
-	String[] debug();
+    void dislike(ICity city);
+    void like(ICity city);
+    Map<String, IPermMap> getPerms();
+    void setPerms(String name, IPermMap permMap);
+    int getMaxOutposts();
+    ILocation getSpawn();
+    void save();
+
+    double getMoney();
+    void addMoney(double amount);
+    void removeMoney(double amount);
+    void setOwner(IHouse newOwneWr);
+    void setTax(double amount);
+    void setSpawn(ILocation location);
+    double getTax();
+    String[] debug();
 	
 }

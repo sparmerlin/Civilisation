@@ -36,6 +36,11 @@ public enum Language {
     
     CITY_NO_OWNER("city_no_owner", "You may not use this command as you don't own your town!"),
     
+    CITY_SPAWN_NOTINCITY("city_spawn_notincity", "You need to be in your city!"),
+    CITY_SPAWN_NOTSET("city_spawn_notset", "There is no city spawn set yet!"),
+    CITY_SPAWN_TP("city_spawn_tp", "You were teleported to the city spawn!"),
+    CITY_SPAWN_SET("city_spawn_set", "City spawn updated!"),
+    
     CITY_YOU_LEFT("city_you_left", "You left %1%!"),
     CITY_YOU_NO_CITY("city_you_no_city", "You are not part of a city!"),
     CITY_UNCLAIM_DONE("city_unclaim_done", "Outpost unclaimed successfully!"),
@@ -78,6 +83,11 @@ public enum Language {
     HOUSE_DISALLOW_PLACE("house_disallow_place", "You may not place blocks here!"),
     HOUSE_DISALLOW_PVE("house_disallow_pve", "You may not fight entities here!"),
     HOUSE_DISALLOW_PVP("house_disallow_pvp", "You may not fight players here!"),
+    
+    HOUSE_SPAWN_NOTINHOUSE("house_spawn_notinhouse", "You need to be in your house's chunks!"),
+    HOUSE_SPAWN_NOTSET("house_spawn_notset", "There is no house spawn set yet!"),
+    HOUSE_SPAWN_TP("house_spawn_tp", "You were teleported to the house spawn!"),
+    HOUSE_SPAWN_SET("house_spawn_set", "House spawn updated!"),
     
     HOUSE_UNCLAIM_DONE("house_unclaim_done", "Chunk unclaimed successfully!"),
     HOUSE_UNCLAIM_FAIL("house_unclaim_fail", "Chunk could not be unclaimed, does not belong to your House!"),

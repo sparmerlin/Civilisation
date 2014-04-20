@@ -17,6 +17,7 @@ public interface IHouse {
     Set<IHouse> getDisliked();
     Set<IHouse> getLiked();
     String getName();
+    ILocation getSpawn();
 
     void dislike(final IHouse house);
     void like(final IHouse house);
@@ -25,6 +26,7 @@ public interface IHouse {
     void addPerm(final String name, final Permission perm);
     void removePerm(final String name, final Permission perm);
     void setPerms(final String name, final IPermMap permMap);
+    void setSpawn(ILocation location);
     
     void save();
 

@@ -8,6 +8,7 @@ import net.slipcor.civ.Civilisation;
 import net.slipcor.civ.api.IChunk;
 import net.slipcor.civ.api.ICity;
 import net.slipcor.civ.api.IHouse;
+import net.slipcor.civ.api.ILocation;
 import net.slipcor.civ.api.IPermMap;
 import net.slipcor.civ.api.Permission;
 import net.slipcor.civ.core.Config.CFG;
@@ -25,6 +26,7 @@ public class CHouse implements IHouse {
     private final Map<String, IPermMap> permissions = new HashMap<String, IPermMap>();
     private final Set<IChunk> claimed = new HashSet<IChunk>();
     private int bonus;
+    private ILocation spawn;
 
     public CHouse(final String name) {
         this.name = name;
@@ -192,4 +194,14 @@ public class CHouse implements IHouse {
 		output[5] = "bonus: " + bonus;
 		return output;
 	}
+
+    @Override
+    public ILocation getSpawn() {
+        return spawn;
+    }
+
+    @Override
+    public void setSpawn(ILocation location) {
+        spawn = location;
+    }
 }

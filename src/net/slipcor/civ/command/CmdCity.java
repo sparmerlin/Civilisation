@@ -39,6 +39,8 @@ public class CmdCity extends AbstractCommand {
         this.addSubCommand("tax", new CmdCityTax(plugin));
         // /city nation [name]
         this.addSubCommand("nation", new CmdCityNation(plugin));
+        // /city spawn [set]
+        this.addSubCommand("spawn", new CmdCitySpawn(plugin));
         
         // /city claim | claim the chunk you stand on
         this.addArgument("claim");

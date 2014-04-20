@@ -31,6 +31,19 @@ public class CLocation implements ILocation {
 		pitch = bukkitLocation.getPitch();
 		yaw = bukkitLocation.getYaw();
 	}
+        
+        public CLocation(final String definition) {
+            String[] values = definition.split("\\|");
+            
+            world = values[0].substring(2);
+            
+            x = Double.parseDouble(values[1].substring(2));
+            y = Double.parseDouble(values[2].substring(2));
+            z = Double.parseDouble(values[3].substring(2));
+            
+            pitch = Float.parseFloat(values[4].substring(2));
+            yaw = Float.parseFloat(values[5].substring(2));
+        }
 
 	public ILocation add(final double x, final double y, final double z) {
 		return new CLocation(world, x + this.x, y + this.y, z + this.z, pitch,
