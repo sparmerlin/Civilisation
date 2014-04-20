@@ -11,6 +11,7 @@ import net.slipcor.civ.api.IHouse;
 import net.slipcor.civ.api.INation;
 import net.slipcor.civ.command.CmdCity;
 import net.slipcor.civ.command.CmdHouse;
+import net.slipcor.civ.command.CmdMap;
 import net.slipcor.civ.command.CmdNation;
 import net.slipcor.civ.command.CmdReload;
 import net.slipcor.civ.core.CivListener;
@@ -103,6 +104,7 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
      */
     @Override
     public void onDisable() {
+        dataManager.save();
         Tracker.stop();
     }
     
@@ -140,6 +142,7 @@ public class Civilisation extends JavaPlugin implements ICivilisation {
      */
     private void registerCommands() {
         getCommand("creload").setExecutor(new CmdReload(this));
+        getCommand("civmap").setExecutor(new CmdMap(this));
         getCommand("house").setExecutor(new CmdHouse(this));
         getCommand("city").setExecutor(new CmdCity(this));
         getCommand("nation").setExecutor(new CmdNation(this));

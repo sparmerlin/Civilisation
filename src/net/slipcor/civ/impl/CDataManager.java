@@ -62,7 +62,7 @@ public class CDataManager implements IDataManager {
                 for (String chunk : cfg.getStringList("claimed")) {
                     house.getClaimed().add(new CChunk(chunk));
                 }
-                plugin.getLogger().info("House loaded: " + house.getName());
+                plugin.getLogger().info("House loaded: " + house.getName() + " (" + house.getClaimed().size() + " Chunks)");
             }
             plugin.getLogger().info("Houses loaded: " + plugin.getHouses().size());
         } else {
@@ -160,6 +160,7 @@ public class CDataManager implements IDataManager {
         final List<String> claimedlist = new ArrayList<String>();
         
         for (IChunk entry : house.getClaimed()) {
+            plugin.getLogger().info("chunk " + entry.toString());
             claimedlist.add(entry.toString());
         }
         
@@ -287,6 +288,14 @@ public class CDataManager implements IDataManager {
     public void save() {
         for (IHouse house : plugin.getHouses()) {
             save(house);
+        }
+        
+        for (ICity city : plugin.getCities()) {
+            save(city);
+        }
+        
+        for (INation nation : plugin.getNations()) {
+            save(nation);
         }
     }
     

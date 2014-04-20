@@ -11,16 +11,23 @@ commands:
         aliases: ['c','civ']
         usage: |
             <command> help
+    civmap:
+        permission: civ.map
+        permission-message: 'Â§cYou don''t have <permission>'
+        description: Show surrounding civilisations
+        aliases: ['cm','map']
+        usage: |
+            <command>
     creload:
         permission: civ.admin
-        permission-message: '§cYou don''t have <permission>'
+        permission-message: 'Â§cYou don''t have <permission>'
         description: Reload command
         aliases: ['cr','reload']
         usage: |
             <command>
     house:
         permission: civ.house.admin
-        permission-message: '§cYou don''t have ''§f<permission>§c''!'
+        permission-message: 'Â§cYou don''t have ''Â§f<permission>Â§c''!'
         description: Administrate your house
         aliases: ['h', 'civh']
         usage: |
@@ -30,7 +37,7 @@ commands:
             /<command> invite
     city:
         permission: civ.city.admin
-        permission-message: '§cYou don''t have ''§f<permission>§c''!'
+        permission-message: 'Â§cYou don''t have ''Â§f<permission>Â§c''!'
         description: Administrate your city
         aliases: ['cc', 'civc']
         usage: |
@@ -39,7 +46,7 @@ commands:
             /<command> perm
     nation:
         permission: civ.nation.admin
-        permission-message: '§cYou don''t have ''§f<permission>§c''!'
+        permission-message: 'Â§cYou don''t have ''Â§f<permission>Â§c''!'
         description: Administrate your nation
         aliases: ['n', 'civn']
         usage: |
@@ -49,6 +56,7 @@ permissions:
         description: Gives access to all the things
         children:
             civ.admin: true
+            civ.map: true
             civ.user: true
     civ.admin:
         description: Allows you to administrate
@@ -61,6 +69,9 @@ permissions:
         default: true
     civ.nation.admin:
         description: Allows you to administrate your nation
+        default: true
+    civ.map:
+        description: Allows you to see surrounding civilisations
         default: true
     civ.user:
         description: Allows you to use
