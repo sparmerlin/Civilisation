@@ -41,6 +41,7 @@ maybe:
 
 Version History
 
+* v0.0.1.10 - add /c house invite [house] and /c house kick [house] 
 * v0.0.1.9 - add MoveListener, requires config setting!
 * v0.0.1.8 - add /c spawn {set} and /h spawn {set}
 * v0.0.1.7 - colorize own civilisations blue

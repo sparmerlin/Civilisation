@@ -27,6 +27,15 @@ public enum Language {
 
     CITY_ALREADY_EXISTS("city_already_exists", "City already exists: %1%"),
     
+    CITY_HOUSE_ALREADY("city_house_already", "%1% is already part of your city!"),
+    CITY_HOUSE_ALREADY_OTHER("city_house_already_other", "%1% is already part of the city %2%!"),
+    CITY_HOUSE_INVITED("city_house_invited", "The house %1% has been invited to your city!"),
+    CITY_HOUSE_INVITED_YOU("city_house_invited_you", "The city %1% has invited you!"),
+    CITY_HOUSE_KICKED("city_house_kicked", "The house %1% has been kicked from your city!"),
+    CITY_HOUSE_KICKED_YOU("city_house_kicked_you", "You have been kicked from your city!"),
+    CITY_HOUSE_NOTKICK_NOTPART("city_house_notkick_notpart", "You cannot kick a house that is not in your city!"),
+    CITY_HOUSE_NOTKICK_YOURSELF("city_house_notkick_yourself", "You cannot kick yourself out of your city!"),
+    
     CITY_CLAIM_ALREADY("city_claim_already", "This chunk already belongs to your city!"),
     CITY_CLAIM_ALREADY_OTHER("city_claim_already_other", "This chunk already belongs to %1%!"),
     CITY_CLAIM_DONE("city_claim_done","Outpost claimed successfully!"),
@@ -34,7 +43,7 @@ public enum Language {
 
     CITY_CREATED("city_created", "City '%1%' created!"),
     
-    CITY_NO_OWNER("city_no_owner", "You may not use this command as you don't own your town!"),
+    CITY_NO_OWNER("city_no_owner", "You may not use this command as you don't own your city!"),
     
     CITY_SPAWN_NOTINCITY("city_spawn_notincity", "You need to be in your city!"),
     CITY_SPAWN_NOTSET("city_spawn_notset", "There is no city spawn set yet!"),

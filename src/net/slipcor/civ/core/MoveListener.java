@@ -37,7 +37,7 @@ public class MoveListener implements Listener {
     public void onMove(final PlayerMoveEvent event) {
         pos = ++pos % offset;
         
-        if (pos > 0) {
+        if (offset > 0 && pos > 0) {
             return;
         }
         
